@@ -1,0 +1,64 @@
+[ 참고 ] 접근지정자
+	private < default < protected < public
+	
+* 다형성
+	- 상속관계
+	- 부모 변수에 자식 객체를 생성
+	
+[ 고민거리 ] 다형성
+				-> 오버라이딩 필수
+				=> 오버라이딩 강제적으로 가능?
+					(오타가 나서 메소드가 틀려져도 문법상 오류가 없음, 이것을 잡아내기 위해 꼭 오버라이딩을 하게끔 오류를 터트리게 해야함)
+
+* abstract : 미완성		<-반대의 개념->		final : 변경불가
+	- method : 구현 {} 없이 선언만 있는 함수
+	- class : 미완성 메소드를 가지고 있는 클래스
+	 
+	 => 필수적으로 오버라이딩 하도록 하려고 (다형성 적용하고자)
+	 
+* final : 변경불가
+	- (변수앞에 붙일수 있음) 변수 : 값변경x
+	- 메소드 : 오버라이딩 불가
+	- 클래스 : 부모클래스가 될수 없음
+
+	
+	Math - cos() / sin() ..........
+	
+	class MyMath extends Math {
+		public void sin() {
+			// 장난으로 sin이 아닌 더하기 연산
+		}
+	}
+	
+	Math m = new MyMath();
+	m.sin();
+	
+	
+	[ modifier ]
+		[1] class A {
+			[2] int A;
+			[3] A() {}
+			[4] void A() {}
+		}
+		
+		[1] 클래스 앞 : public, protected, abstract(미완성), final(클래스 보존), ( static(innerclass만 가능) )
+		[2] 필드 앞 : public, protected, private, final(값변경x), static(값 공유)
+		[3] 생성자 앞 : public, protected, private
+		[4] 메소드 앞 : public, protected, private, abstract(미완성), final(변경못하게)
+		//우리가 선택해서 붙임
+		
+
+* interface : 표준화
+	
+		interface B {
+			(1) int B;
+			(2) void B();
+		}
+			
+			-> 인터페이스 안에 modifier는 자동
+			(1) public static final - (모두가 쓸수있고) (객체 하나로 공유하고) (값 변경이 안됨) => 상수취급
+			(2) public abstract - (모두가 쓸수있고) (추상(오버라이딩 강제)으로 만듬)	
+			
+			
+			
+			
